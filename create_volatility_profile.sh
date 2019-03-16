@@ -15,8 +15,9 @@ set -e
 # variables
 dependencies=(git zip dwarfdump gcc make nm)
 kernel_ver="$(uname -r)"
+kernel_arch="$(uname -m)"
 os_release="$(grep DISTRIB_DESCRIPTION /etc/lsb-release | awk -F "=" '{print $2}' | tr -d ' "')"
-profile_name="$HOSTNAME-$os_release-$kernel_ver.zip"
+profile_name="$HOSTNAME-$os_release-$kernel_ver-$kernel_arch.zip"
 volatility_repo="https://github.com/volatilityfoundation/volatility.git"
 log="create_volatility_profile.log"
 declare -A PKGMAP
